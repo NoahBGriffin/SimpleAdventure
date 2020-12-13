@@ -1,0 +1,122 @@
+NOUNS: Map, Location, Description, Menu, Actions, Pathway, Resident, Activities, Weapon, Monsters, Armor, Damage,
+        Enemy, Items, Bag, Name, Town, Gate, Guard, Explore, Actor, NPC, Fight, Rounds, Attacker, Defender, Option, Loot,
+        Pre-Action, Condition
+VERBS: move, see, talk, fight, perform, wear, reduce, keep, carry, acquire, equip, discard, enter, convince, encounter,
+        fight, attack, run away, dealt, reduces, end the fight, dies, takes, puts, perform an action, remove
+
+Enums:
+-------------
+Locale: unique id of locations on the Map, Ex. Town
+Direction: cardinal directions, EX. North
+
+Classes:
+------------
+
+Player: 
+    the main player object
+
+    Inherits From:
+        - Actor
+    Properties:
+        - Name: the player's name and title
+        - Location: the player's current location
+        - Health: the player's HP
+        - Weapon: the player's Weapon
+        - Armor: the player's Armor
+        - Bag: list of all items in player's Inventory
+    Constructors
+        - Player(Name, health, location)
+    Methods:
+        - void Travel(Location)
+        - void AddToInventory(Item)
+        - void RegainHealth(int)
+        - String GenerateTitle()
+        - String ToString()
+
+Actor:
+    class for all actors in game
+
+    Properties
+        - Location: actor's location on the map
+        - Health: actor's HP
+        - Name: name of the actor
+        - Armor: actor's Armor
+        - Weapon: actor's weapon
+    Constructors
+        - Actor(String name, location, weapon, armor, health)
+    Methods
+        - void EquipArmor(Armor)
+        - void EquipWeapon(Weapon)
+        - void TakeDamage(int)
+        - void Attack(Actor)
+        - String ToString()
+
+Monster
+    class for all enemies in the game
+
+    Inherits From
+        - Actor
+    Properties
+        - Loot: items dropped from monster upon defeat
+    Constructors
+        - Monster(String name, location, health)
+    Methods
+        - AddLoot(Item)
+        - Item DropLoot()
+        - String ToString()
+
+    
+
+Item:
+    class for items
+
+    Properties 
+        - Name
+    Constructors
+        - Item(String name)
+    Methods
+        - String ToString()
+
+Weapon:
+    class for weapons
+
+    Inherits From:
+        - Item class
+    Properties
+        - int Damage
+    Constructors
+        - Weapon(String name, int Damage)
+    Methods
+        - String ToString()
+
+Armor:
+    class for Armor
+
+    Inherits From:
+        - Item class
+    Properties
+        - int Protection
+    Constructors
+        - Armor(String name, int Protect)
+    Methods
+        - String ToString()
+
+Location
+   class for locations on the map
+
+    Properties
+        - id
+        - Description
+        - paths
+    Constructors
+        - Location(id, description)
+    Methods
+        - AddPathway
+        - ToString
+
+TextMenus
+    from class TextMenu code
+    
+
+    
+
